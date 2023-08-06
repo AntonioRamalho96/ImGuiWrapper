@@ -1,5 +1,9 @@
 # ImguiWrapper
 
+The wrapper uses the following third party software (copy pasted to this repo):
+ - [Dear Imgui](https://github.com/ocornut/imgui)
+ - [Dear Imgui File Dialog](https://github.com/aiekick/ImGuiFileDialog)
+
 This wrapper provides a parent class that enables to easily create your GUI.
 To do so you just need to extend the *ImGuiWrapper* class and focus on your GUI. 
 No need for initializations, no need to close contexts, all of that is implemented in *ImGuiWrapper*.
@@ -100,7 +104,7 @@ As you might know:
 
  ### Makefile
  For this you must first clone and compile the project, as described in [Clone it, compile it and see the examples](#clone-it-compile-it-and-see-the-examples).
- 
+
  Well, basically the same as terminal more or less, here is an example:
  ```Makefile
 INCLUDE_FLAGS=-I ../src
