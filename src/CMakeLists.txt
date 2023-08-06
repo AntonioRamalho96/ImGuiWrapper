@@ -8,7 +8,7 @@ add_library(${PROJECT_NAME} STATIC  third_party/imgui/imgui.cpp
                                     third_party/imgui/backends/imgui_impl_sdl2.cpp
                                     third_party/imgui/backends/imgui_impl_opengl3.cpp
                                     # FileExplorer support
-                                    third_party/ImGuiFileDialog/ImGuiFileDialog.cpp
+                                    third_party/imgui_file_dialog/ImGuiFileDialog.cpp
                                     # Wrapper Code
                                     imgui_wrapper.cpp)
 

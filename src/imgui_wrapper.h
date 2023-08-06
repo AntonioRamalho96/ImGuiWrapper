@@ -2,7 +2,7 @@
 #include "third_party/imgui/imgui.h"
 #include "third_party/imgui/backends/imgui_impl_sdl2.h"
 #include "third_party/imgui/backends/imgui_impl_opengl3.h"
-#include "third_party/ImGuiFileDialog/ImGuiFileDialog.h"
+#include "third_party/imgui_file_dialog/ImGuiFileDialog.h"
 #include <stdio.h>
 #include <iostream>
 #include <SDL2/SDL.h>
