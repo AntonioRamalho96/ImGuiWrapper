@@ -6,7 +6,9 @@ No need for initializations, no need to close contexts, all of that is implement
 
 Here is an example on how make a GUI that reverses a string:
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/AntonioRamalho96/ImGuiWrapper/blob/main/doc_material/Screenshot%20from%202023-08-06%2013-18-10.png)
+
+And as you see, the code is quite simple!
 
 ```c++
 #include "imgui_wrapper.h"
@@ -60,5 +62,18 @@ To gice it a try the project already comes with a CMakeLists.txt file to allow e
 If you have g++ and cmake you should be able to compile the project as follows:
 
 ```
-
+git clone https://github.com/AntonioRamalho96/ImGuiWrapper.git
+cd ImGuiWrapper
+mkdir build
+cd build
+cmake ..
+make
 ```
+
+Now, the example executables are in ${ImGuiWrapperDir}/build/examples
+
+Here is an example on how to run an example:
+```shell
+# In ImGuiWrapper directory
+./build/examples/string_reverse
+``` 
