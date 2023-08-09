@@ -71,15 +71,17 @@ ImGuiWrapper::~ImGuiWrapper()
 void ImGuiWrapper::FileDialog(const std::string &name, const std::string &extensions, std::string &file_path) const
 {
     // open Dialog Simple
+    ImGui::PushID(name.c_str());
     if (ImGui::Button("BrowseFile"))
-        ImGuiFileDialog::Instance()->OpenDialog(name.c_str(), "Choose File", extensions.c_str(), ".");
+        ImGuiFileDialog::Instance()->OpenDialog(name.c_str(), "Choose File", extensions.c_str(), "." );
+    ImGui::PopID();
 
     // display
     if (ImGuiFileDialog::Instance()->Display(name.c_str()))
     {
         // action if OK
         if (ImGuiFileDialog::Instance()->IsOk())
-            file_path = ImGuiFileDialog::Instance()->GetCurrentPath();
+            file_path = ImGuiFileDialog::Instance()->GetCurrentPath() + "/" + ImGuiFileDialog::Instance()->GetCurrentFileName();
 
         // close
         ImGuiFileDialog::Instance()->Close();
