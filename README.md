@@ -10,7 +10,7 @@ No need for initializations, no need to close contexts, all of that is implement
 
 Here is an example on how make a GUI that reverses a string:
 
-![alt text](https://github.com/AntonioRamalho96/ImGuiWrapper/blob/main/doc_material/Screenshot%20from%202023-08-06%2013-18-10.png)
+![alt text](https://github.com/AntonioRamalho96/ImGuiWrapper/blob/main/doc_material/string_reverser.png)
 
 And as you see, the code is quite simple!
 
@@ -52,8 +52,53 @@ int main()
 }
 ```
 
-We have also included a nice simplefile prompt. Here is an example using it
+We have also included a nice simple file prompt. Here is an example using it, a GUI for copying a file, with
+two file prompts, one for the input file, the other for the destination of the copy:
 
+![alt text](https://github.com/AntonioRamalho96/ImGuiWrapper/blob/main/doc_material/file_copy.png)
+
+The "trick" that allows the file prompt is the *FileDialog* method that allows to search for files.
+
+```cpp
+#include "imgui_wrapper.h"
+#include <fstream>
+
+class FileCopyGui : public ImGuiWrapper
+{
+public:
+    void GuiDefinition()
+    {
+        ImGui::Begin("File Copy");
+
+        FileDialog("Input", "((.*))", input_file);
+        ImGui::Text("In: %s", input_file.c_str());
+        FileDialog("Output", "((.*))", output_file);
+        ImGui::Text("Out: %s", output_file.c_str());
+        if(ImGui::Button("Copy"))
+            Copy();
+        
+        ImGui::End();
+    }
+
+private:
+    std::string input_file{};
+    std::string output_file{};
+
+    void Copy()
+    {
+        std::ifstream in(input_file);
+        std::ofstream out(output_file);
+        std::string line;
+        while(std::getline(in, line))
+            out << line << std::endl;
+    }
+};
+
+int main()
+{
+    FileCopyGui().Loop();
+}
+```
 
 ## Dependencies
 The project depends on SDL2 and opengl, to install them use:
