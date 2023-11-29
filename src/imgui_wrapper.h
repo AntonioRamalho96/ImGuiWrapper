@@ -1,3 +1,4 @@
+#pragma once
 
 #include "third_party/imgui/imgui.h"
 #include "third_party/imgui/backends/imgui_impl_sdl2.h"
@@ -43,11 +44,11 @@ public:
 
     virtual ~ImGuiWrapper();
 
+    static void FileDialog(const std::string &name, const std::string &extensions, std::string &file_path);
+
 protected:
     ImGuiWrapperProperties properties{};
 
-    void FileDialog(const std::string &name, const std::string &extensions, std::string &file_path) const;
-    
     void NewFrame();
 
     void RenderFrame();
