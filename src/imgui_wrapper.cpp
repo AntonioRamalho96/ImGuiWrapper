@@ -136,3 +136,20 @@ int ImGuiWrapper::InitSdl()
 
     return 0;
 }
+
+void ImGuiWrapper::InputText(const std::string &label, std::string &text)
+{
+    ImGui::InputText(label.c_str(), &(text[0]), text.size(), ImGuiInputTextFlags_CallbackResize, ImGuiWrapper::call_back, &text);
+}
+
+int ImGuiWrapper::call_back(ImGuiInputTextCallbackData *data)
+{
+    if (data->EventFlag == ImGuiInputTextFlags_CallbackResize)
+    {
+        std::string *my_str = (std::string *)data->UserData;
+        my_str->reserve(data->BufSize);
+        my_str->resize(data->BufSize - 1);
+        data->Buf = &((*my_str)[0]);
+    }
+    return 0;
+}

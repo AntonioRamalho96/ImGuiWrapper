@@ -44,6 +44,7 @@ public:
 
     virtual ~ImGuiWrapper();
 
+    static void InputText(const std::string &label, std::string &text);
     static void FileDialog(const std::string &name, const std::string &extensions, std::string &file_path);
 
 protected:
@@ -55,4 +56,6 @@ protected:
 
 private:
     int InitSdl();
+
+    static int call_back(ImGuiInputTextCallbackData *data);
 };
