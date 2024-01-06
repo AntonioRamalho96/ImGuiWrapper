@@ -3,11 +3,11 @@
 #include "third_party/imgui/imgui.h"
 #include <string>
 
-class ImGuiId
+class ImGuiWrapperId
 {
 public:
-    ImGuiId(void *id) { ImGui::PushID(id); }
-    ImGuiId(const ImGuiId &other) = delete;
-    ImGuiId(ImGuiId &&other) = delete;
-    ~ImGuiId() { ImGui::PopID(); }
+    ImGuiWrapperId(void *id) { ImGui::PushID(id); }
+    ImGuiWrapperId(const ImGuiWrapperId &other) = delete;
+    ImGuiWrapperId(ImGuiWrapperId &&other) = delete;
+    ~ImGuiWrapperId() { ImGui::PopID(); }
 };
